@@ -47,16 +47,16 @@ void parse(int tok, int G[][V], int key[8]){
     key[2] = 3;
     break;
   case PAS:
-    key[0] = 2;
-    break;
-  case POT:
-    key[0] = 3;
-    break;
-  case APP:
     key[3] = 2;
     break;
-  case DES:
+  case POT:
     key[3] = 3;
+    break;
+  case APP:
+    key[0] = 2;
+    break;
+  case DES:
+    key[0] = 3;
     break;
   case SOU:
     key[1] = 2;
@@ -66,7 +66,8 @@ void parse(int tok, int G[][V], int key[8]){
     break;
   case '|':
     next_tok = yylex();
-    parse2(key, next_tok);
+    parse2(key, next_tok, G);
+    memset(key,0,sizeof(int)*8);
     break;
   default:
     printf("Error: invalid start of preference expression.\n");

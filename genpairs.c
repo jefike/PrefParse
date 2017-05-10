@@ -41,7 +41,10 @@ void generate_pairs(int key[8], food course, int g[][V]){
   //offset variables for dessert, app, potatoes, pasta, soup
   //salad, shrimp, and chicken.
   int d,a,po,pa,so,sa,sh,c;
-  
+#ifdef DEBUG
+  printf("Key is:\n %d %d %d %d | %d %d %d %d",key[0],key[1],key[2],key[3],
+	 key[4],key[5],key[6],key[7]);
+#endif
   switch(key[0]){ //dessert and appetizer offsets.
   case 3:
     d = 8; a = 0;
@@ -93,7 +96,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
   switch(course)
     {
     case OPTIONAL:
-      if(key[4] == 0){
+      if(key[4] == 1){ //dessert > appetizer
 	g[8+so+sh+po][0+so+sh+po] = 1;
 	g[9+so+c-pa][1+so+c-pa] = 1;
 	g[10-sa+sh+po][2-sa+sh+po] = 1;
@@ -103,7 +106,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
 	g[14-sa-c+po][6-sa-c+po] = 1;
 	g[15-sa-c-pa][7-sa-c-pa] = 1;
       }
-      else if(key[4] == 0){
+      else if(key[4] == 0){ // appetizer > dessert
 	g[0+so+sh+po][8+so+sh+po] = 1;
 	g[1+so+c-pa][9+so+c-pa] = 1;
 	g[2-sa+sh+po][10-sa+sh+po] = 1;
@@ -115,7 +118,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
       }
       break;
     case STARTER:
-      if(key[5] == 0){
+      if(key[5] == 0){ // soup > salad
 	g[0+d+sh+po][4+d+sh+po] = 1;
 	g[1+d+sh-pa][5+d+sh-pa] = 1;
 	g[2+d-c+po][6+d-c+po] = 1;
@@ -125,7 +128,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
 	g[10-a-c+po][14-a-c+po] = 1;
 	g[11-a-c-pa][15-a-c-pa] = 1;
       }
-      else if(key[5] == 0){
+      else if(key[5] == 1){ // salad > soup
 	g[4+d+sh+po][0+d+sh+po] = 1;
 	g[5+d+sh-pa][1+d+sh-pa] = 1;
 	g[6+d-c+po][2+d-c+po] = 1;
@@ -137,7 +140,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
       }
       break;
     case PROTEIN:
-      if(key[6] == 0){
+      if(key[6] == 1){  // shrimp > chicken
 	g[2+d+so+po][0+d+so+po] = 1;
 	g[3+d+so-pa][1+d+so-pa] = 1;
 	g[6+d-sa+po][4+d-sa+po] = 1;
@@ -147,7 +150,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
 	g[14-a-sa+po][12-a-sa+po] = 1;
 	g[15-a-sa-pa][13-a-sa-pa] = 1;
       }
-      else if(key[6] == 1){
+      else if(key[6] == 0){ // chicken > shrimp
 	g[0+d+so+po][2+d+so+po] = 1;
 	g[1+d+so-pa][3+d+so-pa] = 1;
 	g[4+d-sa+po][6+d-sa+po] = 1;
@@ -160,7 +163,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
       
       break;
     case SIDE:
-      if(key[7] == 0){
+      if(key[7] == 1){ // potatoes > pasta
 	g[1+d+sh+so][0+d+sh+so] = 1;
 	g[3+d+so-c][2+d+so-c] = 1;
 	g[5+d-sa+sh][4+d-sa+sh] = 1;
@@ -170,7 +173,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
 	g[13-a-sa+sh][12-a-sa+sh] = 1;
 	g[15-a-sa-c][14-a-sa-c] = 1;
       }
-      else if(key[7] == 0){
+      else if(key[7] == 0){ // pasta > potatoes
 	g[0+d+sh+so][1+d+sh+so] = 1;
 	g[2+d+so-c][3+d+so-c] = 1;
 	g[4+d-sa+sh][5+d-sa+sh] = 1;

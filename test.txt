@@ -1,8 +1,4 @@
+chicken and pasta | salad < soup
 anything | shrimp > chicken
-chicken | pasta > potatoes
-shrimp | potatoes < pasta
-anything | soup > salad
-soup | pasta > potatoes
-dessert | pasta > potatoes
-appetizer | shrimp > chicken
-shitheel
+anything | potatoes > pasta
+anything | dessert > appetizer
