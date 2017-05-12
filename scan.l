@@ -2,7 +2,7 @@
   #include "global.h"
 %}
 %option noyywrap
-ws [\t ]+
+ws [\t \n]+
 
 
 %%
@@ -21,7 +21,6 @@ ws [\t ]+
 "<"         {return '<';}
 "|"         {return '|';}
 ">"         {return '>';}
-"\n"        {return '\n';}
 <<EOF>>     {return DONE;}
-. {printf("What is this garbage? [%s]\n", yytext);}
+. {printf("Invalid token: [%s]\n", yytext);}
 %%

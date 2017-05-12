@@ -4,33 +4,35 @@
  And a 2D array represented the transitive closure is returned.
  */
 
-#include "trans_close.h"
+#include "global.h"
 
-void print_tc(int tc[d][d]){
-  for(int i = 0; i < d; ++i){
-    for(int j = 0; j< d; ++j)
-      printf("%d",tc[i][j]);
+void print_tc(int tc[V][V]){
+  printf("Transitive Closure:\n");
+  for(int i = 0; i < V; ++i){
+    for(int j = 0; j< V; ++j){
+      printf("%d ",tc[i][j]);
+    }
     printf("\n");
   }
 }
-void DFS(int g[][d], int visited[], int v){
+void DFS(int g[][V], int visited[], int v){
   visited[v] = 1;
   
-  for(int i = 0; i < d; ++i){
+  for(int i = 0; i < V; ++i){
     if(i != v && g[v][i] == 1 && visited[i] == 0)
       DFS(g,visited, i);
   }
 }
 
-void trans_close(int g[][d], int t_c[][d]){
-  for ( int i = 0; i < d; ++i)
+void trans_close(int g[][V], int t_c[][V]){
+  for ( int i = 0; i < V; ++i)
 	{
-      for( int j = 0; j < d; ++j)
+      for( int j = 0; j < V; ++j)
 	{
 	  t_c[i][j] = 0;;
 	}
     }
-  for( int i = 0; i < d; ++i){
+  for( int i = 0; i < V; ++i){
     DFS(g,t_c[i],i); 
   }
 }

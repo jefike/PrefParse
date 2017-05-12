@@ -28,3 +28,7 @@ void generate_pairs(int key[8], food course, int g[][V]);
 void parse(int tok, int G[][V], int key[8]);
 
 extern int yylex();
+
+//Transitive Closure functions
+void trans_close(int g[][V], int t_c[][V]);
+void print_tc(int tc[][V]);

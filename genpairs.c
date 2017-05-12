@@ -42,7 +42,7 @@ void generate_pairs(int key[8], food course, int g[][V]){
   //salad, shrimp, and chicken.
   int d,a,po,pa,so,sa,sh,c;
 #ifdef DEBUG
-  printf("Key is:\n %d %d %d %d | %d %d %d %d",key[0],key[1],key[2],key[3],
+  printf("Key is: %d %d %d %d | %d %d %d %d\n",key[0],key[1],key[2],key[3],
 	 key[4],key[5],key[6],key[7]);
 #endif
   switch(key[0]){ //dessert and appetizer offsets.
