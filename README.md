@@ -10,7 +10,9 @@ A conditon may be one or more options or the keyword "anything."
 Examples:
 
 anything | chicken > shrimp
+
 chicken | dessert > appetizer
+
 dessert and chicken | potatoes < pasta
 
 
