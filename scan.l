@@ -15,6 +15,7 @@ ws [\t \n]+
 "pasta"     {return PAS;}
 "potatoes"  {return POT;}
 "appetizer" {return APP;}
+"app"       {return APP;}
 "dessert"   {return DES;}
 "soup"      {return SOU;}
 "salad"     {return SAL;}

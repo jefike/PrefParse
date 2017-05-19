@@ -1,4 +1,9 @@
+/*
+    parse2 function. Parses the second part of the preference expression
+    and sets the remaining four values of the key.
+*/
 #include "global.h"
+
 
 void parse2(int key[8], int next_tok, int g[][V]){
       switch(next_tok){
