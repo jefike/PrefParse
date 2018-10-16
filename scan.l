@@ -2,7 +2,7 @@
   #include "global.h"
 %}
 %option noyywrap
-ws [\t ]+
+ws [\t \n]+
 
 
 %%
@@ -15,13 +15,13 @@ ws [\t ]+
 "pasta"     {return PAS;}
 "potatoes"  {return POT;}
 "appetizer" {return APP;}
+"app"       {return APP;}
 "dessert"   {return DES;}
 "soup"      {return SOU;}
 "salad"     {return SAL;}
 "<"         {return '<';}
 "|"         {return '|';}
 ">"         {return '>';}
-"\n"        {return '\n';}
 <<EOF>>     {return DONE;}
-. {printf("What is this garbage? [%s]\n", yytext);}
+. {printf("Invalid token: [%s]\n", yytext);}
 %%

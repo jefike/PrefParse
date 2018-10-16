@@ -1,4 +1,4 @@
-chicken and pasta | salad < soup
+anything | shrimp < chicken
 anything | shrimp > chicken
 anything | potatoes > pasta
 anything | dessert > appetizer

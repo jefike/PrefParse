@@ -1,35 +1,26 @@
 /*
+
+  Parse Function. Parses the first portion of the preference expression
+  and sets the first four values in the key. Then calls parse2() when the
+  '|' token is encountered.
+  
   Key: 8-bit binary number.
   1-bit: side, pasta = 0, potatoes = 1
   2-bit: protein, chicken = 0, shrimp = 1
   4-bit: starter, soup = 0, salad = 1
-  8-bit: Optional, app = 0, dessert = 1
+  8-bit: optional, app = 0, dessert = 1
+  16-bit: side, pasta = 2, potatoes = 3, no-pref = 0
+  32-bit: protein, chicken = 2, shrimp = 3, no-pref = 0
+  64-bit: starter, soup = 2, salad = 3, no-pref = 0
+  128-bit: optional, app = 2, dessert = 3, no-pref = 0
 
 Examples: 
-anything | chicken < shrimp   00000010
-anything | soup > salad       0000
-anything | potatoes > pasta   00000001
-anything | dessert > app      1000
-chicken  | dessert > app      00201000                
-  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 
-0                
-1    
-2 1  
-3
-4
-5
-6
-7
-8                         
-9
-10
-11                                 
-12
-13
-14
-15
-Eight pairs for first rule:
-
+anything | chicken < shrimp               00000010
+anything | soup > salad                   00000000
+anything | potatoes > pasta               00000001
+anything | dessert > app                  00001000
+chicken  | dessert > app                  00201000                
+dessert chicken potatoes | salad > soup   30230100 
 */
 #include "global.h"
 
